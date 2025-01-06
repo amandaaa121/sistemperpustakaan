@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistem Perpustakaan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      margin: 0 10px;
+    }
+
+    nav a:hover {
+      background-color: #45a049;
+    }
+
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th,
+    td {
+      padding: 8px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .button {
+      padding: 10px 15px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Sistem Perpustakaan</h1>
+  <!-- Navigasi Menu -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#daftar-buku">Daftar Buku</a>
+    <a href="#tambah-buku">Tambah Buku</a>
+    <a href="#tambah-anggota">Tambah Anggota</a>
+    <a href="#daftar-anggota">Daftar Anggota</a>
+    <a href="#cari-buku">Cari Buku</a>
+    <a href="#pinjam-buku">Pinjam Buku</a>
+    <a href="#lapor-peminjaman">Lapor Peminjaman</a>
+    <a href="#denda">Denda</a>
+  </nav>
+  <!-- Home -->
+  <div id="home" class="section">
+    <h2>🏠 Home</h2>
+    <p>Selamat datang di Sistem Perpustakaan Modern. Pilih menu di atas untuk mengelola perpustakaan.</p>
+  </div>
+  <!-- Daftar Buku -->
+  <div id="daftar-buku" class="section">
+    <h2>📚 Daftar Buku</h2>
+    <table id="tabel-buku">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Judul</th>
+          <th>Penulis</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Daftar buku akan ditambahkan di sini menggunakan JavaScript -->
+      </tbody>
+    </table>
+  </div>
+  <!-- Tambah Buku -->
+  <div id="tambah-buku" class="section">
+    <h2>➕ Tambah Buku</h2>
+    <form id="form-tambah-buku">
+      <label for="judul-buku">Judul Buku:</label>
+      <input type="text" id="judul-buku" class="form-input" placeholder="Masukkan Judul Buku">
+      <label for="penulis-buku">Penulis:</label>
+      <input type="text" id="penulis-buku" class="form-input" placeholder="Masukkan Nama Penulis">
+      <label for="status-buku">Status:</label>
+      <select id="status-buku" class="form-input">
+        <option value="tersedia">Tersedia</option>
+        <option value="dipinjam">Dipinjam</option>
+      </select>
+      <button type="submit" class="button">Tambah Buku</button>
+    </form>
+  </div>
+  <!-- Tambah Anggota -->
+  <div id="tambah-anggota" class="section">
+    <h2>➕ Tambah Anggota</h2>
+    <form id="form-tambah-anggota">
+      <label for="nama-anggota">Nama Anggota:</label>
+      <input type="text" id="nama-anggota" class="form-input" placeholder="Nama Lengkap">
+      <label for="email-anggota">Email:</label>
+      <input type="email" id="email-anggota" class="form-input" placeholder="Email Anggota">
+      <button type="submit" class="button">Tambah Anggota</button>
+    </form>
+  </div>
+  <!-- Daftar Anggota -->
+  <div id="daftar-anggota" class="section">
+    <h2>👥 Daftar Anggota</h2>
+    <table id="tabel-anggota">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Nama</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Anggota akan ditambahkan di sini menggunakan JavaScript -->
+      </tbody>
+    </table>
+  </div>
+  <!-- Cari Buku -->
+  <div id="cari-buku" class="section">
+    <h2>🔍 Cari Buku</h2>
+    <label for="cari-judul">Judul Buku:</label>
+    <input type="text" id="cari-judul" class="form-input" placeholder="Cari Buku Berdasarkan Judul">
+    <button id="cari-buku-btn" class="button">Cari</button>
+    <table id="tabel-hasil-cari">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Judul</th>
+          <th>Penulis</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Hasil pencarian buku akan muncul di sini -->
+      </tbody>
+    </table>
+  </div>
+  <!-- Pinjam Buku -->
+  <div id="pinjam-buku" class="section">
+    <h2>📥 Pinjam Buku</h2>
+    <form id="form-pinjam-buku">
+      <label for="pinjam-nama">Nama Anggota:</label>
+      <input type="text" id="pinjam-nama" class="form-input" placeholder="Nama Anggota">
+      <label for="pinjam-judul">Judul Buku:</label>
+      <input type="text" id="pinjam-judul" class="form-input" placeholder="Judul Buku yang Dipinjam">
+      <button type="submit" class="button">Pinjam Buku</button>
+    </form>
+  </div>
+  <!-- Lapor Peminjaman -->
+  <div id="lapor-peminjaman" class="section">
+    <h2>📄 Lapor Peminjaman</h2>
+    <table id="tabel-peminjaman">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Nama Anggota</th>
+          <th>Judul Buku</th>
+          <th>Tanggal Pinjam</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Riwayat peminjaman akan ditambahkan di sini menggunakan JavaScript -->
+      </tbody>
+    </table>
+  </div>
+  <!-- Denda -->
+  <div id="denda" class="section">
+    <h2>💰 Hitung Denda</h2>
+    <form id="form-denda">
+      <label for="nama-peminjam">Nama Peminjam:</label>
+      <input type="text" id="nama-peminjam" class="form-input" placeholder="Nama Peminjam">
+      <label for="tanggal-kembali">Tanggal Kembali:</label>
+      <input type="date" id="tanggal-kembali" class="form-input">
+      <button type="submit" class="button">Hitung Denda</button>
+    </form>
+    <p id="denda-result"></p>
+  </div>
+  <script>
+    let bukuList = [];
+    let anggotaList = [];
+    let peminjamanList = [];
+    // Tambah Buku
+    document.getElementById('form-tambah-buku').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const judul = document.getElementById('judul-buku').value;
+      const penulis = document.getElementById('penulis-buku').value;
+      const status = document.getElementById('status-buku').value;
+      bukuList.push({ judul, penulis, status });
+      const tabelBuku = document.getElementById('tabel-buku').getElementsByTagName('tbody')[0];
+      const row = tabelBuku.insertRow();
+      row.insertCell(0).textContent = bukuList.length;
+      row.insertCell(1).textContent = judul;
+      row.insertCell(2).textContent = penulis;
+      row.insertCell(3).textContent = status;
+      document.getElementById('judul-buku').value = '';
+      document.getElementById('penulis-buku').value = '';
+    });
+    // Tambah Anggota
+    document.getElementById('form-tambah-anggota').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const nama = document.getElementById('nama-anggota').value;
+      const email = document.getElementById('email-anggota').value;
+      anggotaList.push({ nama, email });
+      const tabelAnggota = document.getElementById('tabel-anggota').getElementsByTagName('tbody')[0];
+      const row = tabelAnggota.insertRow();
+      row.insertCell(0).textContent = anggotaList.length;
+      row.insertCell(1).textContent = nama;
+      row.insertCell(2).textContent = email;
+      document.getElementById('nama-anggota').value = '';
+      document.getElementById('email-anggota').value = '';
+    });
+    // Pinjam Buku
+    document.getElementById('form-pinjam-buku').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const namaAnggota = document.getElementById('pinjam-nama').value;
+      const judulBuku = document.getElementById('pinjam-judul').value;
+      const tanggalPinjam = new Date().toLocaleDateString();
+      peminjamanList.push({ namaAnggota, judulBuku, tanggalPinjam });
+      const tabelPeminjaman = document.getElementById('tabel-peminjaman').getElementsByTagName('tbody')[0];
+      const row = tabelPeminjaman.insertRow();
+      row.insertCell(0).textContent = peminjamanList.length;
+      row.insertCell(1).textContent = namaAnggota;
+      row.insertCell(2).textContent = judulBuku;
+      row.insertCell(3).textContent = tanggalPinjam;
+      document.getElementById('pinjam-nama').value = '';
+      document.getElementById('pinjam-judul').value = '';
+    });
+    // Cari Buku
+    document.getElementById('cari-buku-btn').addEventListener('click', function () {
+      const judulCari = document.getElementById('cari-judul').value.toLowerCase();
+      const hasilCari = bukuList.filter(buku => buku.judul.toLowerCase().includes(judulCari));
+      const tabelHasil = document.getElementById('tabel-hasil-cari').getElementsByTagName('tbody')[0];
+      tabelHasil.innerHTML = '';
+      hasilCari.forEach((buku, index) => {
+        const row = tabelHasil.insertRow();
+        row.insertCell(0).textContent = index + 1;
+        row.insertCell(1).textContent = buku.judul;
+        row.insertCell(2).textContent = buku.penulis;
+        row.insertCell(3).textContent = buku.status;
+      });
+    });
+    // Denda
+    document.getElementById('form-denda').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const namaPeminjam = document.getElementById('nama-peminjam').value;
+      const tanggalKembali = new Date(document.getElementById('tanggal-kembali').value);
+      const tanggalPinjam = new Date();  // tanggal pinjam adalah tanggal saat ini
+      // Menghitung batas tanggal (tanggal pinjam + 10 hari)
+      const batasTanggalDenda = new Date(tanggalPinjam);
+      batasTanggalDenda.setDate(tanggalPinjam.getDate() + 10);  // Tambah 10 hari ke tanggal pinjam
+      // Hitung selisih antara tanggal kembali dan batas denda
+      const hariTerlambat = Math.floor((tanggalKembali - batasTanggalDenda) / (1000 * 60 * 60 * 24));
+      let denda = 0;
+      if (tanggalKembali > batasTanggalDenda) {  // Jika tanggal kembali lebih dari 10 hari setelah tanggal pinjam
+        denda = hariTerlambat * 1000;  // Denda dihitung setelah 10 hari
+      }
+      document.getElementById('denda-result').textContent = `Denda untuk ${namaPeminjam}: Rp ${denda}`;
+    });
+  </script>
+</body>
+
+</html>
